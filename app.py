@@ -84,8 +84,8 @@ if st.button("Predict Emotion"):
                 # Create a box for each song
                 with st.expander(f"🎶 {track_name} - {artist_name}"):
                     col1, col2 = st.columns([1, 4])  # 2 columns layout
-                    with col1:
-                        st.image(album_img_url, width=100)  # Album image
+                    # with col1:
+                    #     st.image(album_img_url, width=100)  # Album image
                     with col2:
                         st.markdown(f"**Track**: [{track_name}]({track_url})")
                         st.markdown(f"**Artist**: {artist_name}")

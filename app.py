@@ -79,18 +79,19 @@ if st.button("Predict Emotion"):
                 track_name = track['name']
                 artist_name = track['artists'][0]['name']
                 track_url = track['external_urls']['spotify']
+                album_img_url = track['album']['images'][0]['url']  # Get album image
 
-                # Display the song with a link
-                st.markdown(f"🎶 [{track_name} - {artist_name}]({track_url})")
+                # Create a box for each song
+                with st.expander(f"🎶 {track_name} - {artist_name}"):
+                    col1, col2 = st.columns([1, 4])  # 2 columns layout
+                    with col1:
+                        st.image(album_img_url, width=100)  # Album image
+                    with col2:
+                        st.markdown(f"**Track**: [{track_name}]({track_url})")
+                        st.markdown(f"**Artist**: {artist_name}")
+                        st.markdown(f"**Album**: {track['album']['name']}")
+                        st.markdown(f"**Release Date**: {track['album']['release_date']}")
 
-                # Get song recommendations
-                track_id = track['id']
-                recs = sp.recommendations(seed_genres=genre, limit=5)
-                rec_list = [f"🎵 {rec['name']} - {rec['artists'][0]['name']}" for rec in recs['tracks']]
-
-                if rec_list:
-                    with st.expander(f"Similar Songs to {track_name}"):
-                        st.write("\n".join(rec_list))
         else:
             st.warning("No songs found for this emotion.")
 
@@ -102,7 +103,9 @@ if st.button("Predict Emotion"):
             playlist = playlists['playlists']['items'][0]
             playlist_name = playlist['name']
             playlist_url = playlist['external_urls']['spotify']
+            playlist_img_url = playlist['images'][0]['url']  # Get playlist image
             st.markdown(f"📻 **[{playlist_name}]({playlist_url})**")
+            st.image(playlist_img_url, width=300)  # Playlist image
         else:
             st.warning("No playlists found for this emotion.")
     else:

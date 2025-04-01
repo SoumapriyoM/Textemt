@@ -104,7 +104,9 @@ if st.button("Predict Emotion"):
             playlist = playlists['playlists']['items'][0]
             playlist_name = playlist['name']
             playlist_url = playlist['external_urls']['spotify']
+            playlist_img_url = playlist['images'][0]['url']  # Get playlist image
             st.markdown(f"📻 **[{playlist_name}]({playlist_url})**")
+            st.image(playlist_img_url, width=300)  # Playlist image
         else:
             st.warning("No playlists found for this emotion.")
     else:

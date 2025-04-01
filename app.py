@@ -72,7 +72,7 @@ if st.button("Predict Emotion"):
 
         # Display songs
         st.subheader("🎵 Recommended Songs")
-        results = sp.search(q=genre, type="track", limit=5)
+        results = sp.search(q=genre, type="track", limit=7)
 
         if results['tracks']['items']:
             for track in results['tracks']['items']:
@@ -85,7 +85,7 @@ if st.button("Predict Emotion"):
 
                 # Get song recommendations
                 track_id = track['id']
-                recs = sp.recommendations(seed_tracks=[track_id], limit=3)
+                recs = sp.recommendations(seed_genres=genre, limit=5)
                 rec_list = [f"🎵 {rec['name']} - {rec['artists'][0]['name']}" for rec in recs['tracks']]
 
                 if rec_list:

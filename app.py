@@ -98,7 +98,7 @@ if st.button("Predict Emotion"):
 
         # Display playlist
         st.subheader("📻 Recommended Spotify Playlist")
-        playlists = sp.search(q=f"{genre} playlist", type="playlist", limit=1)
+        playlists = sp.search(q=f"{genre} playlist", type="playlist", limit=5)
 
         if playlists['playlists']['items']:
             playlist = playlists['playlists']['items'][0]

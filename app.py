@@ -75,7 +75,7 @@ if st.button("Predict Emotion"):
 
         # Display songs
         st.subheader("🎵 Recommended Songs")
-        results = sp.search(q=f"genre:{genre}", type="track", limit=7)
+        results = sp.search(q=genre, type="track", limit=7)
 
         if results['tracks']['items']:
             for track in results['tracks']['items']:
@@ -96,18 +96,17 @@ if st.button("Predict Emotion"):
         else:
             st.warning("No songs found for this emotion.")
 
-        # Display playlists
-        st.subheader("📻 Recommended Spotify Playlists")
+        # Display playlist
+        st.subheader("📻 Recommended Spotify Playlist")
         playlists = sp.search(q=f"{genre} playlist", type="playlist", limit=5)
 
         if playlists['playlists']['items']:
-            for playlist in playlists['playlists']['items']:
-                playlist_name = playlist['name']
-                playlist_url = playlist['external_urls']['spotify']
-                playlist_img_url = playlist['images'][0]['url'] if playlist['images'] else spotify_logo_url  # Fallback to logo
-                
-                st.markdown(f"📻 **[{playlist_name}]({playlist_url})**")
-                st.image(playlist_img_url, width=300)  # Playlist image
+            playlist = playlists['playlists']['items'][0]
+            playlist_name = playlist['name']
+            playlist_url = playlist['external_urls']['spotify']
+            playlist_img_url = playlist['images'][0]['url']  # Get playlist image
+            st.markdown(f"📻 **[{playlist_name}]({playlist_url})**")
+            st.image(playlist_img_url, width=300)  # Playlist image
         else:
             st.warning("No playlists found for this emotion.")
     else:

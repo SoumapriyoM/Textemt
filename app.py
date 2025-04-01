@@ -92,15 +92,7 @@ if st.button("Predict Emotion"):
                 # Display the song with album image and a link
                 st.image(album_img_url, width=100)  # Album image
                 st.markdown(f"🎶 [{track_name} - {artist_name}]({track_url})")
-
-                # Get song recommendations
-                track_id = track['id']
-                recs = sp.recommendations(seed_genres=[genre], limit=5)
-                rec_list = [f"🎵 {rec['name']} - {rec['artists'][0]['name']}" for rec in recs['tracks']]
-
-                if rec_list:
-                    with st.expander(f"Similar Songs to {track_name}"):
-                        st.write("\n".join(rec_list))
+                
         else:
             st.warning("No songs found for this emotion.")
 

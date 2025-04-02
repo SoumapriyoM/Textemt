@@ -47,8 +47,8 @@ emotion_to_genre = {
     "anger": "rock",
     "disgust": "metal",
     "fear": "ambient",
-    "joy": "happy",
-    "neutral": "happy",  # Defaulting neutral to happy
+    "joy": "dance",
+    "neutral": "classical",  # Defaulting neutral to happy
     "sadness": "sad",
     "surprise": "pop"
 }

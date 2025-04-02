@@ -47,10 +47,10 @@ emotion_to_genre = {
     "anger": "rock",
     "disgust": "metal",
     "fear": "ambient",
-    "joy": "dance",
+    "joy": "pop",
     "neutral": "classical",  # Defaulting neutral to happy
     "sadness": "sad",
-    "surprise": "pop"
+    "surprise": "rap"
 }
 
 # URL for the default Spotify logo image
@@ -71,7 +71,7 @@ if st.button("Predict Emotion"):
         st.success(f"**Predicted Emotion:** {emotion.capitalize()} (Confidence: {score:.2f})")
 
         # Get recommended genre (default to happy)
-        genre = emotion_to_genre.get(emotion, "happy")
+        genre = emotion_to_genre.get(emotion, "classical")
 
         # Display songs
         st.subheader("🎵 Recommended Songs")

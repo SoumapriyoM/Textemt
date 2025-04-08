@@ -128,8 +128,8 @@ SPOTIFY_CLIENT_SECRET = "bc32eb23e6844c13b95e15c0ab24581d"
 
 # Spotify Authentication (replace with your credentials)
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
-    client_id="YOUR_SPOTIFY_CLIENT_ID",
-    client_secret="YOUR_SPOTIFY_CLIENT_SECRET"
+    client_id=SPOTIFY_CLIENT_ID,
+    client_secret=SPOTIFY_CLIENT_SECRET
 ))
 
 # Load text emotion classifier

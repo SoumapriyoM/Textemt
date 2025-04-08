@@ -6,3 +6,7 @@ opencv-python
 matplotlib
 numpy
 spotipy
+gradio
+torchvision
+deepface
+opencv-contrib-python
